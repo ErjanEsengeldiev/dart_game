@@ -184,24 +184,24 @@ int igraRecursolo() {
 int igra1solo() {
   print(
       'Добро пожаловать в игру!\nУсловия игры:\nПрограмма загадывает число от 1-100 вы должны отгадать\nВы пишите число\nЕсли ваше число меньше программа пишиет"less"\nЕсли ваше число меньше"greater"\nЕсли вы угадали программа пишет количество ваших попыток!\nХорошей игры!\nНачинаем!');
-  int a = Random().nextInt(100);
+  // int a = Random().nextInt(100);
+  int a = 50;
   String end = '';
   int i = 1;
   int igrain1() {
     print('Введите предполагаемое вами число:');
     dynamic chislo = stdin.readLineSync();
-    // bool check = (RegExp(r"^[0-9]+").hasMatch(chislo));
-    // if (check == false) {
-    //   igrain1();
-    // }
+    bool check = (RegExp(r"^[0-9]+").hasMatch(chislo));
+    print('Введите чило!');
+    if (check == false) {
+      igrain1();
+      return 0;
+    }
     if (chislo == '') {
       chislo = 0;
     }
     int chislo1 = int.parse(chislo);
-    if (chislo1 == a) {
-      print('Вы отгадали за $i количество раз!');
-      return i;
-    }
+
     if (chislo1 > a) {
       print('less');
       igrain1();
